@@ -8,7 +8,7 @@ class Foldiak:
             n_features:int,
             n_neurons:int=16,
             ylr:float=5e-2,
-            n_interations:int=300,
+            n_iterations:int=300,
             p:float=0.25,
             lmbda:float=10,
             device=torch.device('cpu')
@@ -35,7 +35,7 @@ class Foldiak:
         self.n_features = n_features
         self.n_neurons = n_neurons
         self.ylr = ylr
-        self.n_interations = n_interations
+        self.n_iterations = n_iterations
         self.p = p
         self.lmbda = lmbda
         self.device = device
@@ -75,7 +75,7 @@ class Foldiak:
         """
         n_samples = batch.shape[0]
         ystar = torch.zeros([n_samples,self.n_neurons]).to(self.device)
-        for j in range(self.n_interations):
+        for j in range(self.n_iterations):
             # grad update on y*,
             delta_ystar = self.f(batch@self.q + ystar@self.w - self.thresh) - ystar
             ystar += self.ylr*delta_ystar
