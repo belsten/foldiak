@@ -41,7 +41,7 @@ class Foldiak:
         self.device = device
 
         self.thresh = torch.zeros([n_neurons,]).to(device)
-        self.q = torch.FloatTensor(n_features,n_neurons,device=device).normal_()
+        self.q = torch.empty([n_features,n_neurons]).normal_().to(device)
         self.w = torch.zeros([n_neurons,n_neurons]).to(device)
         self.normalize_q()
 
