@@ -21,7 +21,7 @@ Reference Foliak model implementation for learning implemented in PyTorch with G
 4. Navigate into the repo and install the requirements using `pip install -r requirements.txt`
 5. Try running the demo notebook: `examples/bars_example.ipynb`
 
-**Note:** To run the notebook you need the sparsecoding library installed. Its great and definitely worth downloading. 
+**Note:** To run the notebook you need the [sparsecoding](https://github.com/rctn/sparsecoding) library installed. Its great and definitely worth downloading. 
 
 Note: If you are using a jupyter notebook, you will need to restart the jupyter kernel each time you change a source file.
 
