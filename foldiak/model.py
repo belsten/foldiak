@@ -84,7 +84,7 @@ class Foldiak:
         return y
 
 
-    def learn_model_weights(self,data,n_epoch,warm_up_epochs,batch_size,alpha=0.1,beta=0.02,gamma=0.02):
+    def learn_model_weights(self,data,n_epoch,warm_up_epochs,batch_size,w_lr=0.1,q_lr=0.02,t_lr=0.02):
         """Learning scheme for model
 
         Parameters
@@ -97,18 +97,18 @@ class Foldiak:
             number of epochs to only update threshold
         batch_size : int 
 
-        alpha : float
+        w_lr : float
             step size for inhibitory feedback weights, w
-        beta : float 
+        q_lr : float 
             step size for feedforward weights, q 
-        gamma : float
+        t_lr : float
             step size for thresholds, t
         """
         for i in (range(n_epoch)):
 
             alpha_,beta_,gamma_ = 0, 0, 0.1
             if i > warm_up_epochs:
-                alpha_,beta_,gamma_ = alpha,beta,gamma
+                alpha_,beta_,gamma_ = w_lr,q_lr,t_lr
             
             dataloader = DataLoader(data, batch_size=batch_size, shuffle=True)
             iterloader = iter(dataloader)
